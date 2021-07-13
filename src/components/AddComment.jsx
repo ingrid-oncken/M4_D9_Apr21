@@ -1,26 +1,37 @@
-import { Component } from "react";
+import { Component, useEffect } from "react";
 import { Button, Form } from 'react-bootstrap'
 
-class AddComment extends Component {
+const AddComment = () => {
 
-    state = {
-        comment: {
-            comment: '',
-            rate: 1,
-            elementId: null
-        }
-    }
+const [comment, setComment] = useState('')
+const [rate, setRate] = useState('1')
+const [elementId, setElementId] = useState('null')
 
-    componentDidUpdate(prevProps) {
-        if (prevProps.asin !== this.props.asin) {
-            this.setState({
-                comment: {
-                    ...this.state.comment,
-                    elementId: this.props.asin
-                }
-            })
+
+    // state = {
+    //     comment: {
+    //         comment: '',
+    //         rate: 1,
+    //         elementId: null
+    //     }
+    // }
+
+useEffect((prevProps) => {
+if (prevProps.asin !== props.asin) {
+            .setComment(...comment, elementId: props.asin)
         }
-    }
+})
+
+    // componentDidUpdate(prevProps) {
+    //     if (prevProps.asin !== this.props.asin) {
+    //         this.setState({
+    //             comment: {
+    //                 ...this.state.comment,
+    //                 elementId: this.props.asin
+    //             }
+    //         })
+    //     }
+    // }
 
     sendComment = async (e) => {
         e.preventDefault()
